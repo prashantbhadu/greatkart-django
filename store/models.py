@@ -49,6 +49,8 @@ class Variation(models.Model):
     created_date = models.DateTimeField(auto_now=True)
 
     objects = VariationManager()
+    class Meta:
+        unique_together = ('product', 'variation_category', 'variation_value')  
 
 
     def __str__(self):
