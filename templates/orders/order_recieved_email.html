@@ -1,0 +1,29 @@
+{% autoescape off %}
+Hi {{ user.first_name }},
+
+Thank you for shopping with GreatKart!
+
+Your order has been placed successfully and is now being processed.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ORDER DETAILS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Order Number : {{ order.order_number }}
+Order Total : ${{ order.order_total }}
+Tax : ${{ order.tax }}
+Status : {{ order.status }}
+Placed On : {{ order.created_at|date:"D, d M Y" }}
+
+SHIPPING TO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+{{ order.full_name }}
+{{ order.full_address }}
+{{ order.city }}, {{ order.state }}
+{{ order.country }}
+{{ order.phone }}
+
+If you have any questions, please reply to this email.
+
+Thanks again for your order!
+— The GreatKart Team
+{% endautoescape %}
