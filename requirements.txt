@@ -16,3 +16,4 @@ charset-normalizer==3.4.4
 Django==5.0.4
 django-admin-honeypot-updated-2021==1.2.0
 uvicorn
+whitenoise==6.9.0
