@@ -139,6 +139,9 @@ STATICFILES_DIRS = [
 
 # WhiteNoise configuration
 STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
     },
