@@ -1,0 +1,12 @@
+django-admin-thumbnails==1.0.0
+django-ipware==7.0.1
+dotenv==0.9.9
+idna==3.11
+pillow==12.1.0
+python-decouple==3.8
+python-dotenv==1.2.1
+python-ipware==3.0.0
+requests==2.32.5
+sqlparse==0.5.5
+tzdata==2025.3
+urllib3==2.6.3

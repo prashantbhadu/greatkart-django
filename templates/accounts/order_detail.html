@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="section-content padding-y bg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card text-center">
+                    <div class="card-body p-5">
+                        
+                        <p class="text-muted mb-1">Order Number: <strong>{{ order.order_number }}</strong></p>
+                        <p class="text-muted mb-4">Payment ID: <strong>{{ order.payment.payment_id }}</strong></p>
+                        <p class="text-muted mb-6">Status:<strong>{{order.payment.status}}</strong></p>
+
+                        <table class="table table-bordered mb-4">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Variations</th>
+                                    <th>Qty</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in order_detail %}
+                                <tr>
+                                    <td>{{ item.product.product_name }}</td>
+                                    <td>
+                                        {% for v in item.variations.all %}
+                                        {{ v.variation_category|capfirst }}: {{ v.variation_value|capfirst }}<br>
+                                        {% empty %}—
+                                        {% endfor %}
+                                    </td>
+                                    <td>{{ item.quantity }}</td>
+                                    <td>${{ item.product_price }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="3" class="text-right"><strong>Subtotal</strong></td>
+                                    <td>${{ subtotal }}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="text-right"><strong>Tax (2%)</strong></td>
+                                    <td>${{ order.tax }}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="text-right"><strong>Grand Total</strong></td>
+                                    <td><strong>${{ order.order_total }}</strong></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                        <a href="{% url 'store' %}" class="btn btn-primary">Continue Shopping</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

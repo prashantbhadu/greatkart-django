@@ -56,8 +56,7 @@
                                                 </a>
                                                 <p class="text-muted small">
                                                     {% for item in cart_item.variations.all %}
-                                                    {{ item.variation_category|capfirst }}: {{
-                                                    item.variation_value|capfirst }}<br>
+                                                    {{ item.variation_category|capfirst }}: {{ item.variation_value|capfirst }}<br>
                                                     {% endfor %}
                                                 </p>
                                             </figcaption>
